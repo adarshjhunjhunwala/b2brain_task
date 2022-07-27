@@ -70,7 +70,7 @@ const Sidebar = () => {
                         </button>
                         <div className="collapse navbar-collapse"
                             id="navbarNavAltMarkup">
-                            <div className="navbar-nav float-end">
+                            <div className="navbar-nav">
                                 <a className="nav-item nav-link" href="/"><img src={notification} /></a>
                                 <a className="nav-item nav-link" href="/"><img src={right_img} /></a>
                             </div>
