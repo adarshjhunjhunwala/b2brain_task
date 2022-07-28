@@ -6,6 +6,7 @@ import profile_img from '../assets/images/profile_img.svg'
 
 const MainContent = (props) => {
     const [companies, setCompanies] = useState({});
+    
     const getData = async () => {
         const url = `https://tva.staging.b2brain.com/search/autocomplete_org_all/?q=${props.query}`;
         let data = await fetch(url);
