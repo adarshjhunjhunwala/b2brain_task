@@ -16,6 +16,7 @@ const Sidebar = () => {
     const [isAccounts, setisAccounts] = useState(true);
     const [isPreferences, setisPreferences] = useState(true);
     const [isSearch, setisSearch] = useState(false);
+    const [query, setQuery] = useState("");
 
     function toggle(name) {
         name === "Accounts" ? setisAccounts(prevState => !prevState) : setisPreferences(prevState => !prevState)
@@ -24,6 +25,11 @@ const Sidebar = () => {
     function isSearchToggle() {
         setisSearch(prevState => !prevState);
     }
+
+    const handleChange = event => {
+        setQuery(event.target.value);
+      };
+
     return (
         <div className="container-fluid h-100">
             <div className="row h-100">
@@ -62,7 +68,7 @@ const Sidebar = () => {
                     <nav className="navbar navbar-expand-lg
                                 navbar-light">
                         {/* <img src={search} alt="search" /> */}
-                        <a onClick={() => isSearchToggle()}><i className={!isSearch ? "fa fa-lg fa-search" : "fa fa-lg fa-times"}></i></a>&nbsp;&nbsp;&nbsp;&nbsp;Search by account name or website
+                        <a onClick={() => isSearchToggle()}><i className={!isSearch ? "fa fa-lg fa-search" : "fa fa-lg fa-times"}></i>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="search" className="searchbox" name="search" placeholder="Search by account name or website" onChange={handleChange} value={query}/></a>
                         <button className="navbar-toggler" type="button"
                             data-toggle="collapse"
                             data-target="#navbarNavAltMarkup"
@@ -79,7 +85,7 @@ const Sidebar = () => {
                             </div>
                         </div>
                     </nav>
-                    <MainContent isSearch={isSearch}/>
+                    <MainContent isSearch={isSearch} query={query}/>
                 </div>
             </div>
         </div>

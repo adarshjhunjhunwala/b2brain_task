@@ -188,3 +188,17 @@ p .company-title {
   font-weight: bold;
   margin-top: 30px;
 }
+
+.searchbox {
+  border: none;
+  width: 266px;
+}
+
+.searchbox:focus {
+  outline: none;
+  background: #F5F5F5;
+}
+
+.searchbox:focus::placeholder {
+  color: #D3D3D3;
+}
