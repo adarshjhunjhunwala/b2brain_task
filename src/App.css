@@ -32,6 +32,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -72,11 +73,15 @@ body {
   margin-top: 5px;
 }
 
-.fa-angle-down, .fa-angle-up{
+.fa-angle-down,
+.fa-angle-up {
   float: right;
 }
 
-a:link, a:visited, a:hover, a:active {
+a:link,
+a:visited,
+a:hover,
+a:active {
   text-decoration: none;
   color: #000000;
 }
@@ -100,7 +105,7 @@ a:link, a:visited, a:hover, a:active {
   color: #C0C0C0;
   box-shadow: 4px 0px 16px 10px rgba(30, 30, 30, 0.08);
   position: fixed;
-  margin-left: 240px;
+  margin-left: 245px;
   padding-left: 15px;
   width: 100%;
   background: #FFFFFF;
@@ -113,4 +118,73 @@ a:link, a:visited, a:hover, a:active {
 .main-content {
   margin-top: 50px;
   margin-left: 240px;
+}
+
+.similar-accounts-heading {
+  margin-top: 110px;
+  margin-left: 60px;
+  font-size: 22px;
+  color: #808080;
+}
+
+.row {
+  display: flex;
+  float: left;
+}
+
+.column {
+  flex: 50%;
+}
+
+.column:nth-child(odd) {
+  margin-right: -240px;
+}
+
+.company-img {
+  height: 50px;
+  width: 50px;
+  margin-left: 60px;
+  float: left;
+  margin-right: 20px;
+}
+
+p .company-title {
+  float: right;
+}
+
+.company-title {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.company-text {
+  margin-top: -15px;
+  font-size: 12px;
+  color: #808080;
+}
+
+.track-btn {
+  margin-left: 130px;
+  margin-top: -25px;
+  font-size: 12px;
+  width: 53px;
+  height: 30px;
+  color: #FF6059;
+  border-radius: 0px;
+  border-color: #FF6059;
+}
+
+.quick-actions {
+  float: right;
+  margin-top: -350px;
+}
+.quick-actions-heading {
+  font-size: 22px;
+  color: #808080;
+}
+
+.quick-actions-text p{
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 30px;
 }
