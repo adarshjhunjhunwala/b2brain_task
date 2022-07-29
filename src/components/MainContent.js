@@ -22,15 +22,12 @@ const MainContent = (props) => {
     function handleButtonClick(ivalue, company_name, company_slug, currtimestamp) {
         let btn_track = document.getElementById("btn-track-" + ivalue);
         let spinner = document.getElementById("spinner-" + ivalue);
-        console.log(ivalue + ": " + btn_track);
         if (btn_track.style.color === "rgb(255, 96, 89)") {
-            console.log("inside if block");
             console.log(`${company_name} (${company_slug}) tracked at ${currtimestamp}`);
             btn_track.style.width = "74px";
             spinner.style.display = "inline-block";
             setTimeout(() => {
                 spinner.style.display = "none";
-                console.log(btn_track);
                 btn_track.style.color = "rgb(26, 171, 43)";
                 btn_track.style.border = "1px solid rgb(26, 171, 43)";
                 btn_track.innerHTML = "Tracking";
