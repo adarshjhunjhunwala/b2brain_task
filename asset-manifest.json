@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/b2brain_task/static/css/main.2a893a21.css",
-    "main.js": "/b2brain_task/static/js/main.7a6d81a6.js",
+    "main.js": "/b2brain_task/static/js/main.73d7c1c5.js",
     "static/js/787.16291db7.chunk.js": "/b2brain_task/static/js/787.16291db7.chunk.js",
     "static/media/hero_img.svg": "/b2brain_task/static/media/hero_img.9a5f58783627d291a84ed36df6dbe026.svg",
     "static/media/customers.svg": "/b2brain_task/static/media/customers.1ef6fbbd993276c09e69f72ada80b953.svg",
@@ -19,11 +19,11 @@
     "static/media/leads.svg": "/b2brain_task/static/media/leads.62ef1c6c1efc199e867d8c0330ee0efd.svg",
     "static/media/intels.svg": "/b2brain_task/static/media/intels.2ee95f5c60ec6ebc39d7bcbcca7c8e74.svg",
     "main.2a893a21.css.map": "/b2brain_task/static/css/main.2a893a21.css.map",
-    "main.7a6d81a6.js.map": "/b2brain_task/static/js/main.7a6d81a6.js.map",
+    "main.73d7c1c5.js.map": "/b2brain_task/static/js/main.73d7c1c5.js.map",
     "787.16291db7.chunk.js.map": "/b2brain_task/static/js/787.16291db7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2a893a21.css",
-    "static/js/main.7a6d81a6.js"
+    "static/js/main.73d7c1c5.js"
   ]
 }
