@@ -134,11 +134,12 @@ a:active {
 
 .column {
   flex: 50%;
+  max-width: 430px;
 }
 
-.column:nth-child(odd) {
-  margin-right: -240px;
-}
+/* .column:nth-child(odd) {
+
+} */
 
 .company-img {
   height: 50px;
@@ -164,8 +165,8 @@ p .company-title {
 }
 
 .track-btn {
-  margin-left: 130px;
-  margin-top: -25px;
+  float: right;
+  margin-top: -10px;
   font-size: 12px;
   width: 53px;
   height: 30px;
@@ -176,7 +177,9 @@ p .company-title {
 
 .quick-actions {
   float: right;
-  margin-top: -350px;
+  margin-top: -35px;
+  margin-left: 900px;
+  position: absolute;
 }
 .quick-actions-heading {
   font-size: 22px;

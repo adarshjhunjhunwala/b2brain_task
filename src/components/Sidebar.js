@@ -28,6 +28,7 @@ const Sidebar = () => {
 
     const handleChange = event => {
         setQuery(event.target.value);
+        // MainContent.getData();
       };
 
     return (
@@ -67,8 +68,7 @@ const Sidebar = () => {
                 <div className="col-10">
                     <nav className="navbar navbar-expand-lg
                                 navbar-light">
-                        {/* <img src={search} alt="search" /> */}
-                        <a onClick={() => isSearchToggle()}><i className={!isSearch ? "fa fa-lg fa-search" : "fa fa-lg fa-times"}></i>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="search" className="searchbox" name="search" placeholder="Search by account name or website" onChange={handleChange} value={query}/></a>
+                        <a onClick={() => isSearchToggle()}><i className={!isSearch ? "fa fa-lg fa-search" : "fa fa-lg fa-times"}></i>&nbsp;&nbsp;&nbsp;&nbsp;</a><input type="text" id="search" className="searchbox" name="search" placeholder="Search by account name or website" onChange={handleChange} onFocus={() => setisSearch(true)} value={query}/>
                         <button className="navbar-toggler" type="button"
                             data-toggle="collapse"
                             data-target="#navbarNavAltMarkup"

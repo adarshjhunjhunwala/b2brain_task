@@ -6,6 +6,29 @@ import profile_img from '../assets/images/profile_img.svg'
 
 const MainContent = (props) => {
     const [companies, setCompanies] = useState({});
+    const [track, setTrack] = useState(false);
+    const oldBtnStyle = {
+        "float": "right",
+        "marginTop": "-10px",
+        "fontSize": "12px",
+        "width": "53px",
+        "height": "30px",
+        "background": "#FFFFFF",
+        "borderRadius": "0px",
+        "color": "#FF6059",
+        "border": "1px solid #FF6059"
+    }
+    const newBtnStyle = {
+        "float": "right",
+        "marginTop": "-10px",
+        "fontSize": "12px",
+        "width": "74px",
+        "height": "30px",
+        "background": "#FFFFFF",
+        "borderRadius": "0px",
+        "color": "#1AAB2B",
+        "border": "1px solid #1AAB2B"
+    }
 
     const getData = async () => {
         const url = `https://tva.staging.b2brain.com/search/autocomplete_org_all/?q=${props.query}`;
@@ -18,7 +41,38 @@ const MainContent = (props) => {
     useEffect(() => {
         getData();
         // eslint-disable-next-line
-    }, props.isSearch)
+    }, [props.isSearch, props.query])
+
+    function trackSetter(company_name, company_slug, currtimestamp) {
+        console.log(`${company_name} (${company_slug}) tracked at ${currtimestamp}`);
+        let spinner = document.getElementById("spinner");
+        spinner.style.display = "block";
+        setTimeout(() => {
+            spinner.style.display = "none";
+            setTrack(true);
+        }, 2000);
+    }
+
+    // function handleButtonClick(btn_track, company_name, company_slug, currtimestamp) {
+    //     let spinner =  document.getElementById("spinner");
+    //     if(btn_track.classList.contains("btn-outline-danger"))
+    //     {
+    //         console.log(`${company_name} (${company_slug}) tracked at ${currtimestamp}`);
+    //         btn_track.style.width = "74px";
+    //         spinner.style.display = "block";
+    //         setTimeout(() => {
+    //             spinner.style.display = "none";
+    //             btn_track.classList.remove("btn-outline-danger");
+    //             btn_track.classList.add("btn-outline-success");
+    //             btn_track.style.color = "#1AAB2B";
+    //             btn_track.style.borderColor = "#1AAB2B";
+    //             btn_track.innerHTML = "Tracking";
+    //         }, 2000);
+    //     }
+    //     else
+    //     {
+    //     }
+    // }
 
     return (
         <div className="main-content">
@@ -39,10 +93,11 @@ const MainContent = (props) => {
                                 <img src={profile_img} className="company-img" alt="profile_img" />
                                 <p className="company-title">Harrow Inc.</p>
                                 <p className="company-text">www.harrow.com
-                                    <button href="/" target="_blank" rel="noreferrer" className="btn btn-outline-danger track-btn">Track</button></p>
+                                    <button onClick={() => trackSetter("Harrow Inc.", "harrow-o1", Date.now())} style={track ? newBtnStyle : oldBtnStyle}><i className="fa fa-spinner" id="spinner" style={{ "display": "none"}}></i>{track ? " Tracking" : " Track"}</button></p>
+                                    {/* <button onClick={() => trackSetter(this, "Harrow Inc.", "harrow-o1", Date.now())} className="btn btn-outline-danger track-btn"><i className="fa fa-spinner" id="spinner" style={{"display": "none"}}></i> Track</button></p> */}
                             </div>
                         })}
-                        {companies.map((element, i) => {
+                        {Object.keys(companies).length !== 0 && companies.map((element, i) => {
                             return <div className="column mt-3" key={i}>
                                 {
                                     element.logo && <img src={element.logo} alt="profile_img"></img>
@@ -61,11 +116,10 @@ const MainContent = (props) => {
                                         "background": CSS.supports('color', element.color) ? element.color : "#DF3B3B"
                                     }}>{element.company.charAt(0).toUpperCase()}</span>
                                 }
-                                {/* <img src={element.logo ? element.logo : ""} style={!element.logo ? {"background": element.color} : ""}className="company-img"/><span>{!element.logo ? element.company.charAt(0).toUpperCase(): ""}</span> */}
-                                <p className="company-title">{element.company.length > 12 ? element.company.substring(0, 12) + "..." : element.company}</p>
-                                
-                                <p className="company-text">{element.website.length > 12 ? element.website.substring(0, 12) + "..." : element.website}
-                                    <button href="/" target="_blank" rel="noreferrer" className="btn btn-outline-danger track-btn">Track</button></p>
+                                <p className="company-title">{element.company.length > 25 ? element.company.substring(0, 25) + "..." : element.company}</p>
+                                <p className="company-text">{element.website}
+                                    <button onClick={() => trackSetter(element.company, element.slug, Date.now())} style={track ? newBtnStyle : oldBtnStyle}><i className="fa fa-spinner" id="spinner" style={{ "display": "none" }}></i>{track ? " Tracking" : " Track"}</button></p>
+                                    {/* <button onClick={() => trackSetter(element.company, element.slug, Date.now())} className="btn btn-outline-danger track-btn"><i className="fa fa-spinner" id="spinner" style={{ "display": "none" }}></i> Track</button></p> */}
                             </div>
                         })}
                     </div>
