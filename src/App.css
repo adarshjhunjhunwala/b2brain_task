@@ -38,7 +38,6 @@
   }
 }
 
-/* Custom styles */
 html,
 body {
   height: 100%;
@@ -137,10 +136,6 @@ a:active {
   max-width: 430px;
 }
 
-/* .column:nth-child(odd) {
-
-} */
-
 .company-img {
   height: 50px;
   width: 50px;
@@ -164,29 +159,19 @@ p .company-title {
   color: #808080;
 }
 
-.track-btn {
-  float: right;
-  margin-top: -10px;
-  font-size: 12px;
-  width: 53px;
-  height: 30px;
-  color: #FF6059;
-  border-radius: 0px;
-  border-color: #FF6059;
-}
-
 .quick-actions {
   float: right;
   margin-top: -35px;
   margin-left: 900px;
   position: absolute;
 }
+
 .quick-actions-heading {
   font-size: 22px;
   color: #808080;
 }
 
-.quick-actions-text p{
+.quick-actions-text p {
   font-size: 14px;
   font-weight: bold;
   margin-top: 30px;
@@ -195,11 +180,14 @@ p .company-title {
 .searchbox {
   border: none;
   width: 266px;
+  font-size: 16px;
 }
 
 .searchbox:focus {
   outline: none;
   background: #F5F5F5;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .searchbox:focus::placeholder {

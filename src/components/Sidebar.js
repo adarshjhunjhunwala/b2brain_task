@@ -24,12 +24,13 @@ const Sidebar = () => {
 
     function isSearchToggle() {
         setisSearch(prevState => !prevState);
+        if (document.getElementById("search-cancel").classList.contains("fa-times"))
+            setQuery("");
     }
 
     const handleChange = event => {
         setQuery(event.target.value);
-        // MainContent.getData();
-      };
+    };
 
     return (
         <div className="container-fluid h-100">
@@ -68,7 +69,7 @@ const Sidebar = () => {
                 <div className="col-10">
                     <nav className="navbar navbar-expand-lg
                                 navbar-light">
-                        <a onClick={() => isSearchToggle()}><i className={!isSearch ? "fa fa-lg fa-search" : "fa fa-lg fa-times"}></i>&nbsp;&nbsp;&nbsp;&nbsp;</a><input type="text" id="search" className="searchbox" name="search" placeholder="Search by account name or website" onChange={handleChange} onFocus={() => setisSearch(true)} value={query}/>
+                        <a onClick={() => isSearchToggle()}><i className={!isSearch ? "fa fa-lg fa-search" : "fa fa-lg fa-times"} id="search-cancel"></i>&nbsp;&nbsp;&nbsp;&nbsp;</a><input type="text" id="search" className="searchbox" name="search" placeholder="Search by account name or website" onChange={handleChange} onFocus={() => setisSearch(true)} value={query} />
                         <button className="navbar-toggler" type="button"
                             data-toggle="collapse"
                             data-target="#navbarNavAltMarkup"
@@ -85,7 +86,7 @@ const Sidebar = () => {
                             </div>
                         </div>
                     </nav>
-                    <MainContent isSearch={isSearch} query={query}/>
+                    <MainContent isSearch={isSearch} query={query} />
                 </div>
             </div>
         </div>

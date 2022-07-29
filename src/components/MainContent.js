@@ -6,36 +6,12 @@ import profile_img from '../assets/images/profile_img.svg'
 
 const MainContent = (props) => {
     const [companies, setCompanies] = useState({});
-    const [track, setTrack] = useState(false);
-    const oldBtnStyle = {
-        "float": "right",
-        "marginTop": "-10px",
-        "fontSize": "12px",
-        "width": "53px",
-        "height": "30px",
-        "background": "#FFFFFF",
-        "borderRadius": "0px",
-        "color": "#FF6059",
-        "border": "1px solid #FF6059"
-    }
-    const newBtnStyle = {
-        "float": "right",
-        "marginTop": "-10px",
-        "fontSize": "12px",
-        "width": "74px",
-        "height": "30px",
-        "background": "#FFFFFF",
-        "borderRadius": "0px",
-        "color": "#1AAB2B",
-        "border": "1px solid #1AAB2B"
-    }
 
     const getData = async () => {
         const url = `https://tva.staging.b2brain.com/search/autocomplete_org_all/?q=${props.query}`;
         let data = await fetch(url);
         let parsedData = await data.json();
         setCompanies(parsedData);
-        console.log(companies);
     }
 
     useEffect(() => {
@@ -43,36 +19,26 @@ const MainContent = (props) => {
         // eslint-disable-next-line
     }, [props.isSearch, props.query])
 
-    function trackSetter(company_name, company_slug, currtimestamp) {
-        console.log(`${company_name} (${company_slug}) tracked at ${currtimestamp}`);
-        let spinner = document.getElementById("spinner");
-        spinner.style.display = "block";
-        setTimeout(() => {
-            spinner.style.display = "none";
-            setTrack(true);
-        }, 2000);
+    function handleButtonClick(ivalue, company_name, company_slug, currtimestamp) {
+        let btn_track = document.getElementById("btn-track-" + ivalue);
+        let spinner = document.getElementById("spinner-" + ivalue);
+        console.log(ivalue + ": " + btn_track);
+        if (btn_track.style.color === "rgb(255, 96, 89)") {
+            console.log("inside if block");
+            console.log(`${company_name} (${company_slug}) tracked at ${currtimestamp}`);
+            btn_track.style.width = "74px";
+            spinner.style.display = "inline-block";
+            setTimeout(() => {
+                spinner.style.display = "none";
+                console.log(btn_track);
+                btn_track.style.color = "rgb(26, 171, 43)";
+                btn_track.style.border = "1px solid rgb(26, 171, 43)";
+                btn_track.innerHTML = "Tracking";
+            }, 1000);
+        }
+        else {
+        }
     }
-
-    // function handleButtonClick(btn_track, company_name, company_slug, currtimestamp) {
-    //     let spinner =  document.getElementById("spinner");
-    //     if(btn_track.classList.contains("btn-outline-danger"))
-    //     {
-    //         console.log(`${company_name} (${company_slug}) tracked at ${currtimestamp}`);
-    //         btn_track.style.width = "74px";
-    //         spinner.style.display = "block";
-    //         setTimeout(() => {
-    //             spinner.style.display = "none";
-    //             btn_track.classList.remove("btn-outline-danger");
-    //             btn_track.classList.add("btn-outline-success");
-    //             btn_track.style.color = "#1AAB2B";
-    //             btn_track.style.borderColor = "#1AAB2B";
-    //             btn_track.innerHTML = "Tracking";
-    //         }, 2000);
-    //     }
-    //     else
-    //     {
-    //     }
-    // }
 
     return (
         <div className="main-content">
@@ -93,12 +59,21 @@ const MainContent = (props) => {
                                 <img src={profile_img} className="company-img" alt="profile_img" />
                                 <p className="company-title">Harrow Inc.</p>
                                 <p className="company-text">www.harrow.com
-                                    <button onClick={() => trackSetter("Harrow Inc.", "harrow-o1", Date.now())} style={track ? newBtnStyle : oldBtnStyle}><i className="fa fa-spinner" id="spinner" style={{ "display": "none"}}></i>{track ? " Tracking" : " Track"}</button></p>
-                                    {/* <button onClick={() => trackSetter(this, "Harrow Inc.", "harrow-o1", Date.now())} className="btn btn-outline-danger track-btn"><i className="fa fa-spinner" id="spinner" style={{"display": "none"}}></i> Track</button></p> */}
+                                    <button onClick={() => handleButtonClick(i, "Harrow Inc.", "harrow-o1", Date.now())} style={{
+                                        "float": "right",
+                                        "marginTop": "-10px",
+                                        "fontSize": "12px",
+                                        "width": "53px",
+                                        "height": "30px",
+                                        "background": "#FFFFFF",
+                                        "borderRadius": "0px",
+                                        "color": "#FF6059",
+                                        "border": "1px solid #FF6059"
+                                    }} id={"btn-track-" + i}><i className="fa fa-spinner" id={"spinner-" + i} style={{ "display": "none" }}></i> Track</button></p>
                             </div>
                         })}
                         {Object.keys(companies).length !== 0 && companies.map((element, i) => {
-                            return <div className="column mt-3" key={i}>
+                            return <div className="column mt-3" key={i + 7}>
                                 {
                                     element.logo && <img src={element.logo} alt="profile_img"></img>
                                 }
@@ -116,10 +91,19 @@ const MainContent = (props) => {
                                         "background": CSS.supports('color', element.color) ? element.color : "#DF3B3B"
                                     }}>{element.company.charAt(0).toUpperCase()}</span>
                                 }
-                                <p className="company-title">{element.company.length > 25 ? element.company.substring(0, 25) + "..." : element.company}</p>
+                                <p className="company-title">{element.company.length > 24 ? element.company.substring(0, 24) + "..." : element.company}</p>
                                 <p className="company-text">{element.website}
-                                    <button onClick={() => trackSetter(element.company, element.slug, Date.now())} style={track ? newBtnStyle : oldBtnStyle}><i className="fa fa-spinner" id="spinner" style={{ "display": "none" }}></i>{track ? " Tracking" : " Track"}</button></p>
-                                    {/* <button onClick={() => trackSetter(element.company, element.slug, Date.now())} className="btn btn-outline-danger track-btn"><i className="fa fa-spinner" id="spinner" style={{ "display": "none" }}></i> Track</button></p> */}
+                                    <button onClick={() => handleButtonClick(i + 7, element.company, element.slug, Date.now())} style={{
+                                        "float": "right",
+                                        "marginTop": "-10px",
+                                        "fontSize": "12px",
+                                        "width": "53px",
+                                        "height": "30px",
+                                        "background": "#FFFFFF",
+                                        "borderRadius": "0px",
+                                        "color": "#FF6059",
+                                        "border": "1px solid #FF6059"
+                                    }} id={"btn-track-" + (i + 7)}><i className="fa fa-spinner" id={"spinner-" + (i + 7)} style={{ "display": "none" }}></i> Track</button></p>
                             </div>
                         })}
                     </div>
