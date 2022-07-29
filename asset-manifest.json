@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/b2brain_task/static/css/main.2a893a21.css",
+    "main.js": "/b2brain_task/static/js/main.7a6d81a6.js",
+    "static/js/787.16291db7.chunk.js": "/b2brain_task/static/js/787.16291db7.chunk.js",
+    "static/media/hero_img.svg": "/b2brain_task/static/media/hero_img.9a5f58783627d291a84ed36df6dbe026.svg",
+    "static/media/customers.svg": "/b2brain_task/static/media/customers.1ef6fbbd993276c09e69f72ada80b953.svg",
+    "static/media/profile_img.svg": "/b2brain_task/static/media/profile_img.d87d35047562197d95fc07acb7715fd6.svg",
+    "static/media/trusted_by.svg": "/b2brain_task/static/media/trusted_by.c80c072ed80868db71155e473f64dd59.svg",
+    "static/media/main_logo.svg": "/b2brain_task/static/media/main_logo.6d4fe8b9eb18ec3fabc081f4d17b3384.svg",
+    "static/media/preferences.svg": "/b2brain_task/static/media/preferences.bde336ebc1f8e50b3e231c8f55b5c5e9.svg",
+    "static/media/team.svg": "/b2brain_task/static/media/team.b7f3a1be0401bf3f024f8b9e8072581b.svg",
+    "static/media/integrations.svg": "/b2brain_task/static/media/integrations.b7dd57d81cd78ceefe6aee34e135ff6c.svg",
+    "index.html": "/b2brain_task/index.html",
+    "static/media/accounts.svg": "/b2brain_task/static/media/accounts.91d755637e40457fce5f1e5c5d3ff04c.svg",
+    "static/media/notification.svg": "/b2brain_task/static/media/notification.dcc883a2de27f941be4a10ec10f4ab25.svg",
+    "static/media/dashboard.svg": "/b2brain_task/static/media/dashboard.37cf2aa7e37b692d28ffecd84ffc8322.svg",
+    "static/media/help_support.svg": "/b2brain_task/static/media/help_support.f39d461fb402e9ad2a83c0da74095f64.svg",
+    "static/media/leads.svg": "/b2brain_task/static/media/leads.62ef1c6c1efc199e867d8c0330ee0efd.svg",
+    "static/media/intels.svg": "/b2brain_task/static/media/intels.2ee95f5c60ec6ebc39d7bcbcca7c8e74.svg",
+    "main.2a893a21.css.map": "/b2brain_task/static/css/main.2a893a21.css.map",
+    "main.7a6d81a6.js.map": "/b2brain_task/static/js/main.7a6d81a6.js.map",
+    "787.16291db7.chunk.js.map": "/b2brain_task/static/js/787.16291db7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2a893a21.css",
+    "static/js/main.7a6d81a6.js"
+  ]
+}
