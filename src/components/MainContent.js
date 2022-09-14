@@ -51,9 +51,9 @@ const MainContent = (props) => {
                 <>
                     <h2 className="similar-accounts-heading">Similar accounts</h2>
                     <div className="row mt-3">
-                        {[...Array(7)].map((e, i) => {
+                        {!props.query && [...Array(7)].map((e, i) => {
                             return <div className="column mt-3" key={i}>
-                                <img src={profile_img} className="company-img" alt="profile_img" />
+                                <img src={profile_img} className="company-img" alt="Harrow Inc." />
                                 <p className="company-title">Harrow Inc.</p>
                                 <p className="company-text">www.harrow.com
                                     <button onClick={() => handleButtonClick(i, "Harrow Inc.", "harrow-o1", Date.now())} style={{
@@ -69,25 +69,20 @@ const MainContent = (props) => {
                                     }} id={"btn-track-" + i}><i className="fa fa-spinner" id={"spinner-" + i} style={{ "display": "none" }}></i> Track</button></p>
                             </div>
                         })}
-                        {Object.keys(companies).length !== 0 && companies.map((element, i) => {
+                        {props.query && Object.keys(companies).length !== 0 && companies.map((element, i) => {
                             return <div className="column mt-3" key={i + 7}>
-                                {
-                                    element.logo && <img src={element.logo} alt="profile_img"></img>
-                                }
-                                {
-                                    !element.logo && <span style={{
-                                        "height": "50px",
-                                        "width": "50px",
-                                        "float": "left",
-                                        "fontSize": "22px",
-                                        "marginLeft": "60px",
-                                        "marginRight": "20px",
-                                        "textAlign": "center",
-                                        "padding": "8px",
-                                        "color": "#FFFFFF",
-                                        "background": CSS.supports('color', element.color) ? element.color : "#DF3B3B"
-                                    }}>{element.company.charAt(0).toUpperCase()}</span>
-                                }
+                                        <span style={{
+                                            "height": "50px",
+                                            "width": "50px",
+                                            "float": "left",
+                                            "fontSize": "22px",
+                                            "marginLeft": "60px",
+                                            "marginRight": "20px",
+                                            "textAlign": "center",
+                                            "padding": "8px",
+                                            "color": "#FFFFFF",
+                                            "background": CSS.supports('color', element.color) ? element.color : "#DF3B3B"
+                                        }}>{element.company.charAt(0).toUpperCase()}</span>
                                 <p className="company-title">{element.company.length > 24 ? element.company.substring(0, 24) + "..." : element.company}</p>
                                 <p className="company-text">{element.website}
                                     <button onClick={() => handleButtonClick(i + 7, element.company, element.slug, Date.now())} style={{
