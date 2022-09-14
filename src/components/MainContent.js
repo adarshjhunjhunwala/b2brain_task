@@ -8,7 +8,7 @@ const MainContent = (props) => {
     const [companies, setCompanies] = useState({});
 
     const getData = async () => {
-        const url = `https://tva.staging.b2brain.com/search/autocomplete_org_all/?q=${props.query}`;
+        const url = `https://staging.staging.b2brain.com/search/autocomplete_org_all/?q=${props.query}`;
         let data = await fetch(url);
         let parsedData = await data.json();
         setCompanies(parsedData);
